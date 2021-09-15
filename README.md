@@ -12,6 +12,7 @@
 
 [<img align="left" alt="vladslavu | Instagram" width="25px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
 
+<br />
 
 ---
 
