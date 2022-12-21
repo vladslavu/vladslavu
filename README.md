@@ -2,7 +2,7 @@
 
 ## I am studying Computer Science at Technical University of Cluj Napoca 
 
-- Currently, Third Year 🏫
+- Currently, Fourth Year 🏫
 - I am always looking for improvement and personal development 📖
 - 2021/2022 Main Goal: Participate to different Internships and see what IT domain fits me best
 
