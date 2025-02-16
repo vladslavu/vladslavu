@@ -1,10 +1,6 @@
-### Hello, my name is Vlad 👋
+### Hi. I'm Vlad 👋
 
-## I am studying Computer Science at Technical University of Cluj Napoca 
-
-- Currently, Fourth Year 🏫
-- I am always looking for improvement and personal development 📖
-- 2021/2022 Main Goal: Participate to different Internships and see what IT domain fits me best
+## Fullstack Engineer (Angular + Spring Boot)
 
 ### You can connect with me:
 
