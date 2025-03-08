@@ -20,11 +20,8 @@ Since my professional work is confidential, my public repositories may not fully
 - Occasionally sharing **code snippets & proof-of-concepts**
 - Studying Kubernetes
 
---- 
+---
 
-# Contact
+[<img align="left" alt="vladslavu | LinkedIn" width="25px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" style="margin=20px"/>][linkedin]
+
 [linkedin]: https://www.linkedin.com/in/vlad-constantin-slavu-9a5a12220
-[instagram]: https://www.instagram.com/vlad.slavu
-
-
-
