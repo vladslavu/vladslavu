@@ -154,13 +154,11 @@ Honesty over inflation, always.
 ```
 index=local_prod_idp_openshift source="*legacy-introspector*" ("Received REST request" OR "Response for POST")
 | rex field=_raw "\"reqId\":\"(?<reqId>[^\"]+)\""
-| eval phase=if(match(_raw,"Received REST request"),"start","end")
-| eval ts=strptime('log.timestamp',"%Y-%m-%dT%H:%M:%S.%3N%z")
-| stats min(eval(if(phase=="start",ts,null()))) as start_ts max(eval(if(phase=="end",ts,null()))) as end_ts by reqId
-| eval latency_ms=round((end_ts-start_ts)*1000,2)
-| where isnotnull(latency_ms)
-| table reqId start_ts end_ts latency_ms
+| transaction reqId startswith="Received REST request" endswith="Response for POST" maxspan=30s
+| eval latency_ms=round(duration*1000,2)
+| table _time reqId latency_ms eventcount
 | sort - latency_ms
+
 ```
 
 </details>
