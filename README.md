@@ -147,3 +147,21 @@ Honesty over inflation, always.
 ⭐ *currently open to interesting backend roles where AI workflows are taken seriously*
 
 </div>
+
+<details>
+<summary>Press here to expand</summary>
+
+```
+index=local_prod_idp_openshift source="*legacy-introspector*" ("Received REST request" OR "Response for POST")
+| rex field=_raw "\"reqId\":\"(?<reqId>[^\"]+)\""
+| eval phase=if(match(_raw,"Received REST request"),"start","end")
+| eval ts=strptime('log.timestamp',"%Y-%m-%dT%H:%M:%S.%3N%z")
+| stats min(eval(if(phase=="start",ts,null()))) as start_ts max(eval(if(phase=="end",ts,null()))) as end_ts by reqId
+| eval latency_ms=round((end_ts-start_ts)*1000,2)
+| where isnotnull(latency_ms)
+| table reqId start_ts end_ts latency_ms
+| sort - latency_ms
+```
+
+</details>
+
