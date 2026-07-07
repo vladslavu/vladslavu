@@ -149,7 +149,7 @@ Honesty over inflation, always.
 </div>
 
 <details>
-<summary>Press here to expand</summary>
+<summary>P</summary>
 
 ```
 index=local_prod_idp_openshift source="*legacy-introspector*"
@@ -161,6 +161,15 @@ index=local_prod_idp_openshift source="*legacy-introspector*"
 | table _time traceId endpoint status latency_ms error_text eventcount
 | sort - latency_ms
 
+
+index=local_prod_idp_openshift source="*legacy-introspector*"
+| rex field=_raw "\"traceId\":\"(?<traceId>[^\"/]+)"
+| rex field=_raw "Response for (?<method>\S+) (?<endpoint>\S+) Status: (?<status>\d+)"
+| transaction traceId startswith="Received REST request" endswith="Response for POST" maxspan=60s
+| eval latency_ms=round(duration*1000,2)
+| stats count avg(latency_ms) as avg_latency_ms min(latency_ms) as min_ms max(latency_ms) as max_ms by status
+| eval avg_latency_ms=round(avg_latency_ms,2)
+| sort status
 
 ```
 
