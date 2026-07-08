@@ -171,7 +171,14 @@ index=local_prod_idp_openshift source="*legacy-introspector*"
 | eval avg_latency_ms=round(avg_latency_ms,2)
 | sort status
 
+SPRING_CLOUD_OPENFEIGN_CLIENT_CONFIG_DEFAULT_LOGGERLEVEL=full
+LOGGING_LEVEL_ORG_APACHE_HTTP_IMPL_CONN=DEBUG
+LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE=DEBUG
+
+
 ```
+
+
 
 </details>
 
